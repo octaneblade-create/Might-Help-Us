@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#302722" />
+	<title>What Ashma Says and What She Means</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			--ink: #fff4f6;
+			--muted: #e2bfc9;
+			--paper: #39252f;
+			--panel: rgba(59, 35, 47, 0.9);
+			--soft-panel: #503341;
+			--line: rgba(255, 205, 220, 0.24);
+			--sage: #d77f9c;
+			--sage-deep: #a95376;
+			--rose: #f0a9bf;
+			--gold: #ffd3a8;
+			--result-bg: rgba(237, 151, 181, 0.13);
+			--result-text: #ffebef;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 48px 20px;
+			display: grid;
+			place-items: center;
+			color: var(--ink);
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			background:
+				radial-gradient(ellipse at 12% 12%, rgba(239, 157, 188, .23) 0, transparent 38%),
+				radial-gradient(ellipse at 84% 88%, rgba(204, 112, 151, .2) 0, transparent 38%),
+				linear-gradient(135deg, #281a24, #49303c 46%, #30202b);
+		}
+
+		body::before, body::after {
+			position: fixed;
+			inset: 0;
+			content: "";
+			pointer-events: none;
+		}
+
+		body::before {
+			z-index: 0;
+			background-image:
+				url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cdefs%3E%3Cg id='b'%3E%3Cpath fill='%23f2a9c0' d='M0 1C-13-3-12-16-5-17C0-18 1-11 2-8C5-16 13-14 14-9C15-4 9 0 6 2C14 1 18 7 14 11C10 15 4 10 1 7C3 16-5 19-9 15C-13 11-8 5-5 2C-14 5-19-2-15-7C-12-11-5-6 0 1Z'/%3E%3Ccircle cy='1' r='2.4' fill='%23ffd77e'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%235d3948' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='15' d='M42 620C58 524 87 453 91 354C94 276 76 206 65 126M88 402C56 366 29 328 17 272M83 449C125 414 159 371 184 315M91 349C133 314 159 269 172 220M76 260C42 224 35 184 39 143M168 341C206 309 231 267 244 222M89 475C59 458 39 433 29 402'/%3E%3Cpath stroke-width='7' d='M19 277C34 252 37 226 32 204M21 279C15 252 10 233 7 216M184 316C173 287 174 257 184 235M184 316C207 292 222 271 229 246M172 222C152 198 146 174 151 151M171 222C194 205 207 184 211 161M65 128C81 105 83 82 77 59M65 128C49 106 46 84 51 67M244 224C266 203 276 181 278 156M244 224C224 201 219 180 222 158M29 402C16 382 13 361 18 342M29 402C49 385 58 366 60 345M91 355C103 331 105 309 98 286'/%3E%3C/g%3E%3Cg%3E%3Cuse href='%23b' x='20' y='267' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='37' y='224' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='8' y='213' transform='scale(1.1)'/%3E%3Cuse href='%23b' x='39' y='143' transform='scale(1.55)'/%3E%3Cuse href='%23b' x='51' y='68' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='77' y='58' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='65' y='126' transform='scale(1.4)'/%3E%3Cuse href='%23b' x='91' y='350' transform='scale(1.5)'/%3E%3Cuse href='%23b' x='98' y='285' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='151' y='151' transform='scale(1.35)'/%3E%3Cuse href='%23b' x='173' y='218' transform='scale(1.55)'/%3E%3Cuse href='%23b' x='211' y='160' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='184' y='235' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='184' y='315' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='229' y='246' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='244' y='221' transform='scale(1.55)'/%3E%3Cuse href='%23b' x='278' y='156' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='222' y='158' transform='scale(1.35)'/%3E%3Cuse href='%23b' x='29' y='402' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='18' y='342' transform='scale(1.1)'/%3E%3Cuse href='%23b' x='60' y='345' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='91' y='475' transform='scale(1.3)'/%3E%3C/g%3E%3C/svg%3E"),
+				url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cdefs%3E%3Cg id='b'%3E%3Cpath fill='%23f6b2c7' d='M0 1C-13-3-12-16-5-17C0-18 1-11 2-8C5-16 13-14 14-9C15-4 9 0 6 2C14 1 18 7 14 11C10 15 4 10 1 7C3 16-5 19-9 15C-13 11-8 5-5 2C-14 5-19-2-15-7C-12-11-5-6 0 1Z'/%3E%3Ccircle cy='1' r='2.4' fill='%23ffe08d'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%235d3948' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='16' d='M258 620C236 527 218 449 211 363C204 281 218 210 240 128M216 430C179 405 146 367 123 319M211 367C172 337 145 300 130 253M216 417C251 383 272 342 282 294M211 326C243 297 258 261 261 226M232 197C204 170 191 136 194 101M233 198C266 177 280 146 280 115M220 455C244 439 258 416 264 390'/%3E%3Cpath stroke-width='7' d='M124 320C99 302 83 280 75 255M124 320C123 294 130 275 145 258M130 253C105 231 94 205 94 179M130 253C151 231 160 208 159 185M282 294C263 271 256 249 259 226M282 294C301 274 307 252 306 230M261 226C240 205 234 184 238 162M261 226C281 207 289 187 288 165M194 102C178 82 174 59 181 37M194 102C215 83 223 61 219 39M280 115C296 94 300 73 294 52M280 115C260 96 254 76 258 57M264 390C281 371 287 351 286 331M264 390C244 371 237 352 239 331'/%3E%3C/g%3E%3Cg%3E%3Cuse href='%23b' x='123' y='319' transform='scale(1.5)'/%3E%3Cuse href='%23b' x='75' y='255' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='145' y='258' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='130' y='252' transform='scale(1.5)'/%3E%3Cuse href='%23b' x='94' y='179' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='159' y='185' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='211' y='363' transform='scale(1.5)'/%3E%3Cuse href='%23b' x='216' y='417' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='282' y='294' transform='scale(1.55)'/%3E%3Cuse href='%23b' x='306' y='230' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='259' y='226' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='238' y='162' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='288' y='165' transform='scale(1.25)'/%3E%3Cuse href='%23b' x='240' y='128' transform='scale(1.5)'/%3E%3Cuse href='%23b' x='194' y='101' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='181' y='37' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='219' y='39' transform='scale(1.3)'/%3E%3Cuse href='%23b' x='280' y='115' transform='scale(1.45)'/%3E%3Cuse href='%23b' x='294' y='52' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='258' y='57' transform='scale(1.2)'/%3E%3Cuse href='%23b' x='264' y='390' transform='scale(1.4)'/%3E%3Cuse href='%23b' x='286' y='331' transform='scale(1.2)'/%3E%3C/g%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-position: left bottom, right bottom;
+			background-size: min(34vw, 390px) min(78vh, 700px);
+			opacity: .68;
+		}
+
+		body::after {
+			z-index: 2;
+			inset: -30vh 0 0;
+			background-image:
+				radial-gradient(ellipse 10px 12px at 8% 8%, #ffe8f0 70%, transparent 76%),
+				radial-gradient(ellipse 8px 11px at 18% 12%, #ffd7e6 68%, transparent 74%),
+				radial-gradient(ellipse 8px 11px at 30% 8%, #ffe7ef 70%, transparent 76%),
+				radial-gradient(ellipse 9px 12px at 42% 11%, #ffd7e6 68%, transparent 74%),
+				radial-gradient(ellipse 9px 12px at 56% 9%, #ffe8f0 70%, transparent 76%),
+				radial-gradient(ellipse 10px 12px at 70% 8%, #ffdce9 68%, transparent 74%),
+				radial-gradient(ellipse 9px 12px at 82% 11%, #ffe8f0 70%, transparent 76%),
+				radial-gradient(ellipse 9px 12px at 94% 8%, #ffd7e6 68%, transparent 74%),
+				radial-gradient(ellipse 5px 8px at 8% 10%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 22% 38%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 39% 18%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 57% 46%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 73% 12%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 91% 35%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 15% 72%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 82% 78%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 5% 54%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 16% 24%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 28% 83%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 34% 61%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 47% 32%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 63% 76%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 69% 55%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 78% 29%, #f2a9c0 65%, transparent 72%),
+				radial-gradient(ellipse 4px 7px at 88% 65%, #ffd5e2 65%, transparent 72%),
+				radial-gradient(ellipse 5px 8px at 96% 12%, #f2a9c0 65%, transparent 72%);
+			background-size: 100% 100%;
+			opacity: .82;
+			animation: petals-fall 18s linear infinite;
+		}
+
+		/* Scenic tree image replaces the old corner-branch illustrations; falling petals remain above it. */
+		body::before {
+			background-image: url("360_F_639166865_WlooSQrFG5Xx3P0T9fr6rxZMHxIvEfc5.jpg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			opacity: .35;
+		}
+
+		.card {
+			position: relative;
+			z-index: 1;
+			width: min(100%, 650px);
+			padding: clamp(28px, 6vw, 56px);
+			border: 1px solid var(--line);
+			border-radius: 28px;
+			background: var(--panel);
+			box-shadow: 0 24px 70px rgba(20, 8, 15, .42), 0 2px 8px rgba(20, 8, 15, .18);
+			backdrop-filter: blur(14px);
+		}
+
+		.eyebrow {
+			margin: 0 0 14px;
+			color: var(--rose);
+			font-size: .76rem;
+			font-weight: 800;
+			letter-spacing: .16em;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			max-width: 540px;
+			margin: 0;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(2.35rem, 8vw, 4.3rem);
+			font-weight: 500;
+			letter-spacing: -.055em;
+			line-height: .98;
+		}
+
+		.intro {
+			margin: 20px 0 30px;
+			color: var(--muted);
+			font-size: 1.05rem;
+			line-height: 1.6;
+		}
+
+		form { display: flex; gap: 10px; }
+
+		input {
+			min-width: 0;
+			flex: 1;
+			padding: 15px 17px;
+			border: 1px solid rgba(255, 205, 220, .24);
+			border-radius: 14px;
+			outline: none;
+			background: rgba(37, 20, 29, .72);
+			color: var(--ink);
+			font: inherit;
+			transition: border-color .2s, box-shadow .2s, background .2s;
+		}
+
+		input::placeholder { color: #d3aeba; }
+		input:focus { border-color: var(--sage); box-shadow: 0 0 0 4px rgba(237, 151, 181, .2); background: rgba(48, 25, 36, .88); }
+
+		button {
+			padding: 0 21px;
+			border: 0;
+			border-radius: 14px;
+			background: linear-gradient(180deg, var(--sage), var(--sage-deep));
+			color: #fff7f8;
+			cursor: pointer;
+			font: inherit;
+			font-weight: 700;
+			transition: filter .2s, transform .2s;
+		}
+
+		button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+		button:focus-visible, .example:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+		.hint { margin: 12px 0 0; color: var(--muted); font-size: .85rem; }
+
+		.result {
+			display: none;
+			margin-top: 28px;
+			padding: 23px;
+			border-left: 4px solid var(--gold);
+			border-radius: 4px 16px 16px 4px;
+			background: var(--result-bg);
+			box-shadow: inset 0 0 0 1px rgba(204, 186, 169, .06);
+			animation: arrive .25s ease-out;
+		}
+
+		.result.visible { display: block; }
+		.result-label { margin: 0 0 8px; color: var(--rose); font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+		.result h2 { margin: 0 0 7px; font-family: Georgia, "Times New Roman", serif; font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+		.result p:last-child { margin: 0; color: var(--result-text); line-height: 1.55; }
+
+		.examples { margin-top: 32px; }
+		.examples-title { margin: 0 0 12px; color: var(--muted); font-size: .8rem; font-weight: 700; }
+		.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+		.example {
+			padding: 8px 12px;
+			border: 1px solid rgba(196, 180, 170, .2);
+			border-radius: 999px;
+			background: rgba(190, 105, 137, .2);
+			color: var(--ink);
+			cursor: pointer;
+			font: inherit;
+			font-size: .82rem;
+			transition: background .2s, border-color .2s;
+		}
+		.example:hover { background: rgba(213, 125, 157, .34); border-color: rgba(255, 205, 220, .4); }
+		.extra-link {
+			position: fixed;
+			z-index: 2;
+			bottom: max(18px, env(safe-area-inset-bottom));
+			left: 50%;
+			padding: 13px 22px;
+			border: 1px solid rgba(255, 211, 168, .5);
+			border-radius: 999px;
+			background: linear-gradient(135deg, rgba(215, 127, 156, .98), rgba(169, 83, 118, .98));
+			box-shadow: 0 8px 28px rgba(20, 8, 15, .38), 0 0 22px rgba(237, 151, 181, .24);
+			color: var(--ink);
+			font-size: .92rem;
+			font-weight: 700;
+			text-align: center;
+			text-decoration: none;
+			transform: translateX(-50%);
+			animation: extra-float 3s ease-in-out infinite;
+			transition: filter .2s, box-shadow .2s;
+		}
+		.extra-link:hover { filter: brightness(1.1); box-shadow: 0 10px 32px rgba(20, 8, 15, .46), 0 0 28px rgba(237, 151, 181, .35); }
+		.extra-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+		@keyframes arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+		@keyframes extra-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+		@keyframes petals-fall { from { transform: translateY(-12vh) rotate(0deg); } to { transform: translateY(125vh) rotate(30deg); } }
+		@media (max-width: 480px) {
+			body { padding: 22px 14px; }
+			form { flex-direction: column; }
+			form button { min-height: 50px; }
+			.card { border-radius: 22px; }
+			body::before { background-size: 38vw 52vh; opacity: .38; }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+	</style>
+</head>
+<body>
+	<main class="card">
+		<p class="eyebrow">A very unofficial phrasebook</p>
+		<h1>What Ashma Says and What She Means</h1>
+		<p class="intro">Put in a classic Ashma-ism. We’ll translate the words into the meaning.</p>
+
+		<form id="search-form" role="search">
+			<input id="phrase" type="search" placeholder='Try “I’m on my way”' aria-label="Search a phrase Ashma says" autocomplete="off" />
+			<button type="submit">Translate</button>
+		</form>
+		<p class="hint">Try a phrase below, or type your own.</p>
+
+		<section id="result" class="result" aria-live="polite" aria-atomic="true">
+			<p class="result-label">Translation</p>
+			<h2 id="said"></h2>
+			<p id="means"></p>
+		</section>
+
+		<section class="examples" aria-label="Example phrases">
+			<p class="examples-title">The Phrases Being.</p>
+			<div class="chips" id="examples"></div>
+		</section>
+	</main>
+	<a class="extra-link" href="2.html">Might Help</a>
+
+	<script>
+		// Add or edit phrases here; searches are matched without regard to capitalization.
+		const translations = [
+			{ phrase: "I'm not hungry", meaning: "Had no energy to cook." },
+			{ phrase: "I'll call you back", meaning: "Not like someone was waiting or anything..." },
+			{ phrase: "Sarea pea hai", meaning: "wow im just too astonished to say anything to that" },
+			{ phrase: "Let's see", meaning: "Dont feel like deciding." },
+			{ phrase: "Maybe", meaning: "Actually, very literally maybe." },
+			{ phrase: "Two minutes", meaning: "Time is a flexible concept, but I appreciate your patience." },
+			{ phrase: "I'll think about it", meaning: "Probably no," },
+			{ phrase: "It is what it is", meaning: "Will not be opening another discussion about it." },
+			{ phrase: "I'm fine", meaning: "I am not yet ready to admit it but Id appreciate your patience and want you to stick around, yet I won't say it." }
+		];
+
+		const form = document.querySelector("#search-form");
+		const input = document.querySelector("#phrase");
+		const result = document.querySelector("#result");
+		const said = document.querySelector("#said");
+		const means = document.querySelector("#means");
+		const fallbackReplies = [
+			"Bold move. I’m choosing not to overthink it.",
+			"Noted. I’ll file that under things I’ll bring up later.",
+			"I hear you, and I’m glad you said it.",
+			"Okay. You still have a little corner of my heart.",
+			"Understood. The day continues, somehow.",
+			"Quietly noted. Just a long pause and a sip of tea."
+		];
+
+		function showTranslation(query) {
+			const normalized = query.trim().toLowerCase();
+			if (!normalized) {
+				input.focus();
+				return;
+			}
+
+			const clean = value => value.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
+			const search = clean(normalized);
+			const distance = (left, right) => {
+				const row = Array.from({ length: right.length + 1 }, (_, index) => index);
+				for (let i = 1; i <= left.length; i++) {
+					let diagonal = row[0];
+					row[0] = i;
+					for (let j = 1; j <= right.length; j++) {
+						const above = row[j];
+						row[j] = Math.min(row[j] + 1, row[j - 1] + 1, diagonal + (left[i - 1] === right[j - 1] ? 0 : 1));
+						diagonal = above;
+					}
+				}
+				return row[right.length];
+			};
+			let match = translations.find(item => clean(item.phrase) === search)
+				|| translations.find(item => clean(item.phrase).includes(search) || search.includes(clean(item.phrase)));
+
+			if (!match && search.length >= 4) {
+				let bestDistance = Infinity;
+				for (const item of translations) {
+					const phrase = clean(item.phrase);
+					for (let start = 0; start < phrase.length; start++) {
+						for (let length = Math.max(1, search.length - 2); length <= search.length + 2 && start + length <= phrase.length; length++) {
+							const candidateDistance = distance(search, phrase.slice(start, start + length).trim());
+							if (candidateDistance < bestDistance) {
+								bestDistance = candidateDistance;
+								match = item;
+							}
+						}
+					}
+				}
+				if (bestDistance > Math.max(1, Math.floor(search.length * 0.25))) match = undefined;
+			}
+
+			said.textContent = match ? `“${match.phrase}”` : `“${query.trim()}”`;
+			means.textContent = match
+				? match.meaning
+				: fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+			result.classList.add("visible");
+		}
+
+		form.addEventListener("submit", event => {
+			event.preventDefault();
+			showTranslation(input.value);
+		});
+
+		const examples = document.querySelector("#examples");
+		translations.forEach(item => {
+			const chip = document.createElement("button");
+			chip.type = "button";
+			chip.className = "example";
+			chip.textContent = item.phrase;
+			chip.addEventListener("click", () => {
+				input.value = item.phrase;
+			});
+			examples.append(chip);
+		});
+	</script>
+</body>
+</html>
